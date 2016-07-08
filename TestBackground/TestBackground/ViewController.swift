@@ -123,7 +123,7 @@ class ViewController: UIViewController {
         
         let localNotification = UILocalNotification()
         localNotification.applicationIconBadgeNumber = 1
-        localNotification.fireDate = NSDate(timeInterval: 5, sinceDate: NSDate(timeIntervalSinceNow: 0))
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
         localNotification.timeZone = NSTimeZone.defaultTimeZone()
         localNotification.soundName = UILocalNotificationDefaultSoundName
         localNotification.alertBody = msg

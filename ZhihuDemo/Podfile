@@ -1,7 +1,9 @@
 platform :ios, '8.0'
+use_frameworks!
 
 target 'ZhihuDemo' do
-  pod 'ReactiveCocoa', '2.5'
-  pod 'ReactiveViewModel'
+  pod 'ReactiveCocoa', '~> 2.5'
+  pod 'ReactiveViewModel', '0.2'
+  pod 'Masonry', '~> 1.0'
 end
 

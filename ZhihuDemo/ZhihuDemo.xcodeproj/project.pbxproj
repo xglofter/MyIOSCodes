@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30536671E017B61B33D6B488 /* Pods_ZhihuDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84F60FCF049A9C10B9B1874 /* Pods_ZhihuDemo.framework */; };
 		62C746AC1D47520000434AB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C746AB1D47520000434AB5 /* main.m */; };
 		62C746AF1D47520000434AB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C746AE1D47520000434AB5 /* AppDelegate.m */; };
-		62C746B21D47520000434AB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C746B11D47520000434AB5 /* ViewController.m */; };
-		62C746B51D47520000434AB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C746B31D47520000434AB5 /* Main.storyboard */; };
 		62C746B81D47520000434AB5 /* ZhihuDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62C746B61D47520000434AB5 /* ZhihuDemo.xcdatamodeld */; };
 		62C746BA1D47520000434AB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C746B91D47520000434AB5 /* Assets.xcassets */; };
 		62C746BD1D47520000434AB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C746BB1D47520000434AB5 /* LaunchScreen.storyboard */; };
 		62C746C61D47946400434AB5 /* ZHDCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C746C51D47946400434AB5 /* ZHDCoreDataStack.m */; };
-		71CB13CB89CC4DDBAEFD961C /* libPods-ZhihuDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4D5A8D0435F43E2602BCD0 /* libPods-ZhihuDemo.a */; };
+		793E73881D50485500006C5E /* ZHDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E73871D50485500006C5E /* ZHDMainViewController.m */; };
+		793E738B1D505A1A00006C5E /* ZHDMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E738A1D505A1A00006C5E /* ZHDMainViewModel.m */; };
+		793E738F1D505E4C00006C5E /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E738E1D505E4C00006C5E /* APIClient.m */; };
+		79B8A21D1D548A0900B72CF6 /* ZHDVCWithMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B8A21C1D548A0900B72CF6 /* ZHDVCWithMenu.m */; };
+		79B8A2211D54A56800B72CF6 /* ZHDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,17 +27,25 @@
 		62C746AB1D47520000434AB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		62C746AD1D47520000434AB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		62C746AE1D47520000434AB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		62C746B01D47520000434AB5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		62C746B11D47520000434AB5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		62C746B41D47520000434AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62C746B71D47520000434AB5 /* ZhihuDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZhihuDemo.xcdatamodel; sourceTree = "<group>"; };
 		62C746B91D47520000434AB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62C746BC1D47520000434AB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62C746BE1D47520000434AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C746C41D47946400434AB5 /* ZHDCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDCoreDataStack.h; sourceTree = "<group>"; };
 		62C746C51D47946400434AB5 /* ZHDCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDCoreDataStack.m; sourceTree = "<group>"; };
+		793E73861D50485500006C5E /* ZHDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDMainViewController.h; sourceTree = "<group>"; };
+		793E73871D50485500006C5E /* ZHDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDMainViewController.m; sourceTree = "<group>"; };
+		793E73891D505A1A00006C5E /* ZHDMainViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDMainViewModel.h; sourceTree = "<group>"; };
+		793E738A1D505A1A00006C5E /* ZHDMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDMainViewModel.m; sourceTree = "<group>"; };
+		793E738D1D505E4C00006C5E /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		793E738E1D505E4C00006C5E /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		79B8A21B1D548A0900B72CF6 /* ZHDVCWithMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDVCWithMenu.h; sourceTree = "<group>"; };
+		79B8A21C1D548A0900B72CF6 /* ZHDVCWithMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDVCWithMenu.m; sourceTree = "<group>"; };
+		79B8A21F1D54A56800B72CF6 /* ZHDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDMenuViewController.h; sourceTree = "<group>"; };
+		79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDMenuViewController.m; sourceTree = "<group>"; };
+		79D3C8841D584E4B00B65570 /* UICommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICommonHeader.h; sourceTree = "<group>"; };
 		8938A5D8682535B0C972504C /* Pods-ZhihuDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhihuDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhihuDemo/Pods-ZhihuDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		8A4D5A8D0435F43E2602BCD0 /* libPods-ZhihuDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZhihuDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84F60FCF049A9C10B9B1874 /* Pods_ZhihuDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhihuDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71CB13CB89CC4DDBAEFD961C /* libPods-ZhihuDemo.a in Frameworks */,
+				30536671E017B61B33D6B488 /* Pods_ZhihuDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +85,10 @@
 				62C746AE1D47520000434AB5 /* AppDelegate.m */,
 				62C746C41D47946400434AB5 /* ZHDCoreDataStack.h */,
 				62C746C51D47946400434AB5 /* ZHDCoreDataStack.m */,
-				62C746B01D47520000434AB5 /* ViewController.h */,
-				62C746B11D47520000434AB5 /* ViewController.m */,
-				62C746B31D47520000434AB5 /* Main.storyboard */,
+				793E738D1D505E4C00006C5E /* APIClient.h */,
+				793E738E1D505E4C00006C5E /* APIClient.m */,
+				79B8A21E1D54A51200B72CF6 /* Common */,
+				793E738C1D505A2800006C5E /* MainPage */,
 				62C746B91D47520000434AB5 /* Assets.xcassets */,
 				62C746BB1D47520000434AB5 /* LaunchScreen.storyboard */,
 				62C746BE1D47520000434AB5 /* Info.plist */,
@@ -94,6 +106,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		793E738C1D505A2800006C5E /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				79B8A21B1D548A0900B72CF6 /* ZHDVCWithMenu.h */,
+				79B8A21C1D548A0900B72CF6 /* ZHDVCWithMenu.m */,
+				793E73861D50485500006C5E /* ZHDMainViewController.h */,
+				793E73871D50485500006C5E /* ZHDMainViewController.m */,
+				793E73891D505A1A00006C5E /* ZHDMainViewModel.h */,
+				793E738A1D505A1A00006C5E /* ZHDMainViewModel.m */,
+				79B8A21F1D54A56800B72CF6 /* ZHDMenuViewController.h */,
+				79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		79B8A21E1D54A51200B72CF6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				79D3C8841D584E4B00B65570 /* UICommonHeader.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		A11E64162A8AA467E862D89C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +141,7 @@
 		BF85BBEF1E3AD1CEC824B594 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A4D5A8D0435F43E2602BCD0 /* libPods-ZhihuDemo.a */,
+				D84F60FCF049A9C10B9B1874 /* Pods_ZhihuDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +180,7 @@
 				TargetAttributes = {
 					62C746A61D47520000434AB5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MG4GRZ9TJ6;
 					};
 				};
 			};
@@ -173,7 +209,6 @@
 			files = (
 				62C746BD1D47520000434AB5 /* LaunchScreen.storyboard in Resources */,
 				62C746BA1D47520000434AB5 /* Assets.xcassets in Resources */,
-				62C746B51D47520000434AB5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,25 +267,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62C746B21D47520000434AB5 /* ViewController.m in Sources */,
+				793E738B1D505A1A00006C5E /* ZHDMainViewModel.m in Sources */,
+				793E738F1D505E4C00006C5E /* APIClient.m in Sources */,
+				793E73881D50485500006C5E /* ZHDMainViewController.m in Sources */,
+				79B8A21D1D548A0900B72CF6 /* ZHDVCWithMenu.m in Sources */,
 				62C746C61D47946400434AB5 /* ZHDCoreDataStack.m in Sources */,
 				62C746AF1D47520000434AB5 /* AppDelegate.m in Sources */,
 				62C746AC1D47520000434AB5 /* main.m in Sources */,
 				62C746B81D47520000434AB5 /* ZhihuDemo.xcdatamodeld in Sources */,
+				79B8A2211D54A56800B72CF6 /* ZHDMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		62C746B31D47520000434AB5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				62C746B41D47520000434AB5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		62C746BB1D47520000434AB5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

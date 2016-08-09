@@ -45,10 +45,6 @@
         [self.tableView reloadData];
     }];
 
-    // TEST
-    [APIClient requestGetWithUrl:@"http://example.com" parameters:nil callback:^(BOOL isSuccess, id msg) {
-        NSLog(@"%c, %@", isSuccess, msg);
-    }];
 }
 
 - (void)onMenuAction {

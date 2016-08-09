@@ -32,9 +32,9 @@ typedef void(^Callback)(BOOL isSuccess, id msg);
 
 @interface APIClient : NSObject
 
-+ (void)requestGetWithUrl:(NSString *)url parameters:(NSDictionary *)parameters callback:(Callback)callback;
++ (RACSignal *)fetchJSONFromUrl:(NSString *)url parameters:(NSDictionary *)parameters;
 
-- (RACSignal *)fetchJSONFromUrl:(NSString *)url;
-
+// TODO: just test
++ (RACSignal *)requestLogin;
 
 @end

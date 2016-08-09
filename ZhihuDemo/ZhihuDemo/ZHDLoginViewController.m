@@ -9,6 +9,8 @@
 #import "ZHDLoginViewController.h"
 #import "ZHDLoginView.h"
 
+#import "APIClient.h"
+
 @implementation ZHDLoginViewController {
     ZHDLoginView *_mainView;
 }
@@ -25,6 +27,11 @@
 
     [self setupLoginEnableSignal];
 
+    // TEST
+    RACSignal *test = [APIClient fetchJSONFromUrl:kUrlThemes parameters:nil];
+    [test subscribeNext:^(id x) {
+        NSLog(@">>>: %@", x);
+    }];
 }
 
 
@@ -53,44 +60,11 @@
 
 - (void)onLoginAction:(UIButton *)sender {
 
-    RACSignal *signalLogin = [self requestLogin];
-//    [signalLogin subscribeNext:^(NSString *msg) {
-//        NSLog(@"login: %@", msg);
-//    }];
-
-    RACSignal *signal2 = [self request2];
-
-    [[signalLogin concat:signal2] subscribeNext:^(id x) {
-
-        NSLog(@"%@", x);
+    RACSignal *signalLogin = [APIClient requestLogin];
+    [signalLogin subscribeNext:^(NSString *msg) {
+        NSLog(@"login: %@", msg);
     }];
-}
 
-// TODO: just test
-- (RACSignal *)requestLogin {
-    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [subscriber sendNext:@"Login OK!"];
-            [subscriber sendCompleted];
-        });
-        return nil;
-    }];
-}
-
-
-- (RACSignal *)request2 {
-
-    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-            [subscriber sendNext:@"请求2完成"];
-            [subscriber sendCompleted];
-        });
-
-        return nil;
-    }];
 }
 
 

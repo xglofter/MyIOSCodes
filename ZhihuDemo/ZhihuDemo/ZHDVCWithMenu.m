@@ -9,7 +9,7 @@
 #import "ZHDVCWithMenu.h"
 
 @interface ZHDVCWithMenu () {
-    CGFloat _offsetX;   // 实时横向位移
+    CGFloat _offsetX;  // current move offset on X-coordinate
     CGFloat _speedX;
 }
 
@@ -145,7 +145,6 @@
 
         self.mainVC.view.center = CGPointMake(recCenterX,recCenterY);
 
-        //scale 1.0~kMainPageScale
         CGFloat scale = 1 - (1 - kMainPageScale) * fMovePercent;
         self.mainVC.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, scale, scale);
         [pan setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -158,8 +157,7 @@
         CGFloat tempAlpha = fMenuMaskMaxAlpha - (fMenuMaskMaxAlpha - fMenuMaskMinAlpha) * fMovePercent;
         self.maskView.alpha = tempAlpha;
     }
-    else {
-        //超出范围，
+    else { // out of range
         if (fCurMainOriginX < 0) {
             [self closeMenuView];
             _offsetX = 0;
@@ -170,7 +168,7 @@
         }
     }
 
-    //手势结束后修正位置,超过约一半时向多出的一半偏移
+    // touch end
     if (pan.state == UIGestureRecognizerStateEnded) {
         if (fabs(_offsetX) > fSlideChangeStateDistance) {
             if (self.isClosed) {

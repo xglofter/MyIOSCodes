@@ -8,10 +8,14 @@
 
 #import "UICommonHeader.h"
 
+@class ZHDMainViewModel;
 @class ZHDVCWithMenu;
 
 @interface ZHDMainViewController : UIViewController
 
 @property(nonatomic, weak) ZHDVCWithMenu *parentVC;
+
+@property(nonatomic, strong) ZHDMainViewModel *viewModel;
+
 
 @end

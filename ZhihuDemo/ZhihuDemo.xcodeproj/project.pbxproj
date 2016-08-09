@@ -17,8 +17,11 @@
 		793E73881D50485500006C5E /* ZHDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E73871D50485500006C5E /* ZHDMainViewController.m */; };
 		793E738B1D505A1A00006C5E /* ZHDMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E738A1D505A1A00006C5E /* ZHDMainViewModel.m */; };
 		793E738F1D505E4C00006C5E /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E738E1D505E4C00006C5E /* APIClient.m */; };
+		794EEF3E1D59CFE50074BA83 /* ZHDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794EEF3D1D59CFE50074BA83 /* ZHDLoginViewController.m */; };
+		794EEF411D59D1130074BA83 /* ZHDLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 794EEF401D59D1130074BA83 /* ZHDLoginView.m */; };
 		79B8A21D1D548A0900B72CF6 /* ZHDVCWithMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B8A21C1D548A0900B72CF6 /* ZHDVCWithMenu.m */; };
 		79B8A2211D54A56800B72CF6 /* ZHDMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */; };
+		79D3C8881D5860CA00B65570 /* AHDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3C8871D5860CA00B65570 /* AHDDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +42,17 @@
 		793E738A1D505A1A00006C5E /* ZHDMainViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDMainViewModel.m; sourceTree = "<group>"; };
 		793E738D1D505E4C00006C5E /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		793E738E1D505E4C00006C5E /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		794EEF3C1D59CFE50074BA83 /* ZHDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDLoginViewController.h; sourceTree = "<group>"; };
+		794EEF3D1D59CFE50074BA83 /* ZHDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDLoginViewController.m; sourceTree = "<group>"; };
+		794EEF3F1D59D1130074BA83 /* ZHDLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDLoginView.h; sourceTree = "<group>"; };
+		794EEF401D59D1130074BA83 /* ZHDLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDLoginView.m; sourceTree = "<group>"; };
 		79B8A21B1D548A0900B72CF6 /* ZHDVCWithMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDVCWithMenu.h; sourceTree = "<group>"; };
 		79B8A21C1D548A0900B72CF6 /* ZHDVCWithMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDVCWithMenu.m; sourceTree = "<group>"; };
 		79B8A21F1D54A56800B72CF6 /* ZHDMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDMenuViewController.h; sourceTree = "<group>"; };
 		79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDMenuViewController.m; sourceTree = "<group>"; };
 		79D3C8841D584E4B00B65570 /* UICommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICommonHeader.h; sourceTree = "<group>"; };
+		79D3C8861D5860CA00B65570 /* AHDDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHDDetailViewController.h; sourceTree = "<group>"; };
+		79D3C8871D5860CA00B65570 /* AHDDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHDDetailViewController.m; sourceTree = "<group>"; };
 		8938A5D8682535B0C972504C /* Pods-ZhihuDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhihuDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhihuDemo/Pods-ZhihuDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D84F60FCF049A9C10B9B1874 /* Pods_ZhihuDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhihuDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -89,6 +98,9 @@
 				793E738E1D505E4C00006C5E /* APIClient.m */,
 				79B8A21E1D54A51200B72CF6 /* Common */,
 				793E738C1D505A2800006C5E /* MainPage */,
+				79D3C8851D58606A00B65570 /* DetailPage */,
+				794EEF3B1D59CD8C0074BA83 /* LoginPage */,
+				794EEF421D59DDCB0074BA83 /* Model */,
 				62C746B91D47520000434AB5 /* Assets.xcassets */,
 				62C746BB1D47520000434AB5 /* LaunchScreen.storyboard */,
 				62C746BE1D47520000434AB5 /* Info.plist */,
@@ -121,12 +133,39 @@
 			name = MainPage;
 			sourceTree = "<group>";
 		};
+		794EEF3B1D59CD8C0074BA83 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				794EEF3C1D59CFE50074BA83 /* ZHDLoginViewController.h */,
+				794EEF3D1D59CFE50074BA83 /* ZHDLoginViewController.m */,
+				794EEF3F1D59D1130074BA83 /* ZHDLoginView.h */,
+				794EEF401D59D1130074BA83 /* ZHDLoginView.m */,
+			);
+			name = LoginPage;
+			sourceTree = "<group>";
+		};
+		794EEF421D59DDCB0074BA83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		79B8A21E1D54A51200B72CF6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				79D3C8841D584E4B00B65570 /* UICommonHeader.h */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		79D3C8851D58606A00B65570 /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				79D3C8861D5860CA00B65570 /* AHDDetailViewController.h */,
+				79D3C8871D5860CA00B65570 /* AHDDetailViewController.m */,
+			);
+			name = DetailPage;
 			sourceTree = "<group>";
 		};
 		A11E64162A8AA467E862D89C /* Pods */ = {
@@ -269,13 +308,16 @@
 			files = (
 				793E738B1D505A1A00006C5E /* ZHDMainViewModel.m in Sources */,
 				793E738F1D505E4C00006C5E /* APIClient.m in Sources */,
+				794EEF3E1D59CFE50074BA83 /* ZHDLoginViewController.m in Sources */,
 				793E73881D50485500006C5E /* ZHDMainViewController.m in Sources */,
 				79B8A21D1D548A0900B72CF6 /* ZHDVCWithMenu.m in Sources */,
 				62C746C61D47946400434AB5 /* ZHDCoreDataStack.m in Sources */,
 				62C746AF1D47520000434AB5 /* AppDelegate.m in Sources */,
 				62C746AC1D47520000434AB5 /* main.m in Sources */,
+				79D3C8881D5860CA00B65570 /* AHDDetailViewController.m in Sources */,
 				62C746B81D47520000434AB5 /* ZhihuDemo.xcdatamodeld in Sources */,
 				79B8A2211D54A56800B72CF6 /* ZHDMenuViewController.m in Sources */,
+				794EEF411D59D1130074BA83 /* ZHDLoginView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

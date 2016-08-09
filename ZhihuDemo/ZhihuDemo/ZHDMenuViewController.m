@@ -31,7 +31,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return 9;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -47,21 +47,43 @@
     cell.textLabel.textColor = [UIColor whiteColor];
 
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"开通会员";
+        cell.textLabel.text = @"首页";
     } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"QQ钱包";
+        cell.textLabel.text = @"日常心里学";
     } else if (indexPath.row == 2) {
-        cell.textLabel.text = @"网上营业厅";
+        cell.textLabel.text = @"用户推荐日报";
     } else if (indexPath.row == 3) {
-        cell.textLabel.text = @"个性装扮";
+        cell.textLabel.text = @"电影日报";
     } else if (indexPath.row == 4) {
-        cell.textLabel.text = @"我的收藏";
+        cell.textLabel.text = @"不许无聊";
     } else if (indexPath.row == 5) {
-        cell.textLabel.text = @"我的相册";
+        cell.textLabel.text = @"设计日报";
     } else if (indexPath.row == 6) {
-        cell.textLabel.text = @"我的文件";
+        cell.textLabel.text = @"大公司日报";
+    } else if (indexPath.row == 7) {
+        cell.textLabel.text = @"财经日报";
+    } else if (indexPath.row == 8) {
+        cell.textLabel.text = @"互联网安全";
     }
     return cell;
+}
+
+
+#pragma mark UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return fCategoryTableCellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return fCategoryTableHeaderHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 180)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,16 +98,8 @@
 //    [tempAppDelegate.mainNavigationController pushViewController:vc animated:NO];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 180;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 180)];
-    view.backgroundColor = [UIColor clearColor];
-    return view;
-}
+
+
 
 
 @end

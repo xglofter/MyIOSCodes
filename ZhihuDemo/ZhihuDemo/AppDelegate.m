@@ -8,9 +8,12 @@
 
 #import "AppDelegate.h"
 #import "ZHDCoreDataStack.h"
-#import "ZHDMainViewController.h"
 #import "ZHDVCWithMenu.h"
+#import "ZHDMainViewController.h"
+#import "ZHDMainViewModel.h"
 #import "ZHDMenuViewController.h"
+
+#import "ZHDLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,14 +26,19 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    ZHDMenuViewController *menuVC = [[ZHDMenuViewController alloc] init];
-    ZHDMainViewController *mainVC = [[ZHDMainViewController alloc] init];
-    UINavigationController *mainNavivation = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//    ZHDMenuViewController *menuVC = [[ZHDMenuViewController alloc] init];
+//    ZHDMainViewController *mainVC = [[ZHDMainViewController alloc] init];
+//    ZHDMainViewModel *mainVM = [[ZHDMainViewModel alloc] init];
+//    mainVC.viewModel = mainVM;
+//    UINavigationController *mainNavivation = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//
+//    ZHDVCWithMenu *mainVCWithMenu = [[ZHDVCWithMenu alloc] initWithLeftVC:menuVC andMainVC:mainNavivation];
+//    mainVC.parentVC = mainVCWithMenu;
+//
+//    self.window.rootViewController = mainVCWithMenu;
 
-    ZHDVCWithMenu *mainVCWithMenu = [[ZHDVCWithMenu alloc] initWithLeftVC:menuVC andMainVC:mainNavivation];
-    mainVC.parentVC = mainVCWithMenu;
-
-    self.window.rootViewController = mainVCWithMenu;
+    ZHDLoginViewController *loginVC = [[ZHDLoginViewController alloc] init];
+    self.window.rootViewController = loginVC;
 
     // color scheme
     self.window.backgroundColor = [UIColor whiteColor];

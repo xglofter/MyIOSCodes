@@ -25,7 +25,7 @@
 
     [_mainView.loginButton addTarget:self action:@selector(onLoginAction:) forControlEvents:UIControlEventTouchUpInside];
 
-    [self setupLoginEnableSignal];
+    [self _setupLoginEnableSignal];
 
     // TEST
     RACSignal *test = [APIClient fetchJSONFromUrl:kUrlThemes parameters:nil];
@@ -35,7 +35,7 @@
 }
 
 
-- (void)setupLoginEnableSignal {
+- (void)_setupLoginEnableSignal {
 
     RACSignal *numberSignal = [_mainView.numberTextField.rac_textSignal map:^id(NSString *numberText) {
         NSUInteger length = numberText.length;

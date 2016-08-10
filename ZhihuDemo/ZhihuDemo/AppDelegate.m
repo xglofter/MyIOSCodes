@@ -26,19 +26,20 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-//    ZHDMenuViewController *menuVC = [[ZHDMenuViewController alloc] init];
-//    ZHDMainViewController *mainVC = [[ZHDMainViewController alloc] init];
-//    ZHDMainViewModel *mainVM = [[ZHDMainViewModel alloc] init];
-//    mainVC.viewModel = mainVM;
-//    UINavigationController *mainNavivation = [[UINavigationController alloc] initWithRootViewController:mainVC];
-//
-//    ZHDVCWithMenu *mainVCWithMenu = [[ZHDVCWithMenu alloc] initWithLeftVC:menuVC andMainVC:mainNavivation];
-//    mainVC.parentVC = mainVCWithMenu;
-//
-//    self.window.rootViewController = mainVCWithMenu;
+    ZHDMenuViewController *menuVC = [[ZHDMenuViewController alloc] init];
+    ZHDMainViewController *mainVC = [[ZHDMainViewController alloc] init];
+    ZHDMainViewModel *mainVM = [[ZHDMainViewModel alloc] init];
+    mainVC.viewModel = mainVM;
+    UINavigationController *mainNavivation = [[UINavigationController alloc] initWithRootViewController:mainVC];
 
-    ZHDLoginViewController *loginVC = [[ZHDLoginViewController alloc] init];
-    self.window.rootViewController = loginVC;
+    ZHDVCWithMenu *mainVCWithMenu = [[ZHDVCWithMenu alloc] initWithLeftVC:menuVC andMainVC:mainNavivation];
+    mainVC.parentVC = mainVCWithMenu;
+
+    self.window.rootViewController = mainVCWithMenu;
+
+    // TEST
+//    ZHDLoginViewController *loginVC = [[ZHDLoginViewController alloc] init];
+//    self.window.rootViewController = loginVC;
 
     // color scheme
     self.window.backgroundColor = [UIColor whiteColor];

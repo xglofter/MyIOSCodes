@@ -12,6 +12,7 @@
 
 @property(nonatomic, strong) RACSignal *updateTableSignal;
 
+
 - (instancetype)initWithModel:(id)model;
 
 - (NSInteger)numberOfSections;

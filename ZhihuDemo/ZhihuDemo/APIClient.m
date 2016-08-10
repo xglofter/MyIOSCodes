@@ -30,7 +30,7 @@
         callback(@YES, dic);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", [error localizedDescription]);
-        callback(@NO, [error localizedDescription]);
+        callback(@NO, error);
     }];
 }
 
@@ -45,7 +45,7 @@
             if (isSuccess) {
                 [subscriber sendNext:msg];
             } else {
-                [subscriber sendNext:@"error"];
+                [subscriber sendError:(NSError *)msg];
             }
             [subscriber sendCompleted];
         }];

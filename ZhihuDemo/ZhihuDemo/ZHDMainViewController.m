@@ -7,19 +7,27 @@
 //
 
 #import "ZHDMainViewController.h"
-
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "ZHDVCWithMenu.h"
 #import "ZHDMainViewModel.h"
 #import "APIClient.h"
+#import "ZHDMainView.h"
 
-@interface ZHDMainViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ZHDMainViewController () <ZHDMainViewDelegate> {
+    ZHDMainView *_mainView;
+}
 
-@property(nonatomic, strong) UITableView *tableView;
 
 @end
 
 
 @implementation ZHDMainViewController
+
+- (void)loadView {
+    _mainView = [[ZHDMainView alloc] init];
+    _mainView.delegate = self;
+    self.view = _mainView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,16 +41,10 @@
     [menuBtn addTarget:self action:@selector(onMenuAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
 
-    self.tableView = [[UITableView alloc] init];
-    self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
-
     @weakify(self);
     [self.viewModel.updateTableSignal subscribeNext:^(id x) {
         @strongify(self);
-        [self.tableView reloadData];
+        [self->_mainView.tableView reloadData];
     }];
 
 }
@@ -53,44 +55,27 @@
     [self.parentVC openMenuView]; // open the Menu
 }
 
-#pragma mark UITableViewDelegate
+#pragma mark ZHDMainViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return fArticleTableHeaderHeight;
+- (void)mainViewTableViewSelected:(NSIndexPath *)indexPath {
+    NSLog(@"mainViewTableView Selected");
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return fArticleTableCellHeight;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"didSelectRowAtIndexPath %@", indexPath);
-}
-
-#pragma mark UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)mainViewTableViewNumberOfSections {
     return [self.viewModel numberOfSections];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)mainViewTableViewNumberOfRows:(NSInteger)section {
     return [self.viewModel numberOfItemsInSection:section];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    static NSString *Identifier = @"Identifier";
-//    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:Identifier];
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
-    cell.textLabel.text = [self.viewModel titleAtIndexPath:indexPath];
-
-    return cell;
+- (NSString *)mainViewTableViewContentTitle:(NSIndexPath *)indexPath {
+    return [self.viewModel titleAtIndexPath:indexPath];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)mainViewTableViewHeaderTitle:(NSInteger)section {
     return [self.viewModel titleForSection:section];
 }
-
 
 
 @end

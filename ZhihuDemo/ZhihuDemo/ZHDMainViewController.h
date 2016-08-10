@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Richard. All rights reserved.
 //
 
-#import "UICommonHeader.h"
+#import <UIKit/UIKit.h>
 
 @class ZHDMainViewModel;
 @class ZHDVCWithMenu;

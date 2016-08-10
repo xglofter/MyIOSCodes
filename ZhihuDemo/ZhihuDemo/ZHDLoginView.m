@@ -48,7 +48,7 @@
         [_loginButton setBackgroundImage:[UIImage imageNamed:@"btn_nor"] forState:UIControlStateNormal];
         [self addSubview:_loginButton];
 
-        [self layoutViews];
+        [self _layoutViews];
 
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onCloseKeyboard:)];
         [self addGestureRecognizer:tap];
@@ -56,7 +56,7 @@
     return self;
 }
 
-- (void)layoutViews {
+- (void)_layoutViews {
     [_logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
         make.top.equalTo(self).offset(100);

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <Masonry/Masonry.h>
 
 #define kScreenSize       [[UIScreen mainScreen] bounds].size
@@ -25,3 +24,8 @@
 #define fButtonHeight    60
 
 #define vColorView       [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:9]
+
+
+
+
+

@@ -19,6 +19,10 @@
 		793E738F1D505E4C00006C5E /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 793E738E1D505E4C00006C5E /* APIClient.m */; };
 		794EEF3E1D59CFE50074BA83 /* ZHDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 794EEF3D1D59CFE50074BA83 /* ZHDLoginViewController.m */; };
 		794EEF411D59D1130074BA83 /* ZHDLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 794EEF401D59D1130074BA83 /* ZHDLoginView.m */; };
+		795D6FFB1D5C3855005F7933 /* ZHDNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 795D6FFA1D5C3855005F7933 /* ZHDNewsCell.m */; };
+		7979A5111D5C6125008A65B7 /* ZHDMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979A5101D5C6125008A65B7 /* ZHDMenuViewModel.m */; };
+		7979A5191D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979A5161D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.m */; };
+		7979A51A1D5C6556008A65B7 /* ZHDTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7979A5181D5C6556008A65B7 /* ZHDTheme.m */; };
 		79B522391D5B344900C25068 /* ZHDDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B522381D5B344900C25068 /* ZHDDetailView.m */; };
 		79B5223C1D5B348600C25068 /* ZHDDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B5223B1D5B348600C25068 /* ZHDDetailViewModel.m */; };
 		79B8A21D1D548A0900B72CF6 /* ZHDVCWithMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B8A21C1D548A0900B72CF6 /* ZHDVCWithMenu.m */; };
@@ -50,6 +54,14 @@
 		794EEF3D1D59CFE50074BA83 /* ZHDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDLoginViewController.m; sourceTree = "<group>"; };
 		794EEF3F1D59D1130074BA83 /* ZHDLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDLoginView.h; sourceTree = "<group>"; };
 		794EEF401D59D1130074BA83 /* ZHDLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDLoginView.m; sourceTree = "<group>"; };
+		795D6FF91D5C3855005F7933 /* ZHDNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNewsCell.h; sourceTree = "<group>"; };
+		795D6FFA1D5C3855005F7933 /* ZHDNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNewsCell.m; sourceTree = "<group>"; };
+		7979A50F1D5C6125008A65B7 /* ZHDMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDMenuViewModel.h; sourceTree = "<group>"; };
+		7979A5101D5C6125008A65B7 /* ZHDMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDMenuViewModel.m; sourceTree = "<group>"; };
+		7979A5151D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZHDTheme+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7979A5161D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZHDTheme+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7979A5171D5C6556008A65B7 /* ZHDTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDTheme.h; sourceTree = "<group>"; };
+		7979A5181D5C6556008A65B7 /* ZHDTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDTheme.m; sourceTree = "<group>"; };
 		79B522371D5B344900C25068 /* ZHDDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDDetailView.h; sourceTree = "<group>"; };
 		79B522381D5B344900C25068 /* ZHDDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDDetailView.m; sourceTree = "<group>"; };
 		79B5223A1D5B348600C25068 /* ZHDDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDDetailViewModel.h; sourceTree = "<group>"; };
@@ -104,10 +116,6 @@
 			children = (
 				62C746AD1D47520000434AB5 /* AppDelegate.h */,
 				62C746AE1D47520000434AB5 /* AppDelegate.m */,
-				62C746C41D47946400434AB5 /* ZHDCoreDataStack.h */,
-				62C746C51D47946400434AB5 /* ZHDCoreDataStack.m */,
-				793E738D1D505E4C00006C5E /* APIClient.h */,
-				793E738E1D505E4C00006C5E /* APIClient.m */,
 				79B8A21E1D54A51200B72CF6 /* Common */,
 				793E738C1D505A2800006C5E /* MainPage */,
 				79D3C8851D58606A00B65570 /* DetailPage */,
@@ -139,12 +147,16 @@
 				793E73871D50485500006C5E /* ZHDMainViewController.m */,
 				79DA44001D5AD6520006BF0B /* ZHDMainView.h */,
 				79DA44011D5AD6520006BF0B /* ZHDMainView.m */,
+				795D6FF91D5C3855005F7933 /* ZHDNewsCell.h */,
+				795D6FFA1D5C3855005F7933 /* ZHDNewsCell.m */,
 				793E73891D505A1A00006C5E /* ZHDMainViewModel.h */,
 				793E738A1D505A1A00006C5E /* ZHDMainViewModel.m */,
 				79B8A21F1D54A56800B72CF6 /* ZHDMenuViewController.h */,
 				79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */,
 				79DA44031D5AD66D0006BF0B /* ZHDMenuView.h */,
 				79DA44041D5AD66D0006BF0B /* ZHDMenuView.m */,
+				7979A50F1D5C6125008A65B7 /* ZHDMenuViewModel.h */,
+				7979A5101D5C6125008A65B7 /* ZHDMenuViewModel.m */,
 			);
 			name = MainPage;
 			sourceTree = "<group>";
@@ -163,6 +175,10 @@
 		794EEF421D59DDCB0074BA83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7979A5151D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.h */,
+				7979A5161D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.m */,
+				7979A5171D5C6556008A65B7 /* ZHDTheme.h */,
+				7979A5181D5C6556008A65B7 /* ZHDTheme.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,6 +187,10 @@
 			isa = PBXGroup;
 			children = (
 				79D3C8841D584E4B00B65570 /* UICommonHeader.h */,
+				62C746C41D47946400434AB5 /* ZHDCoreDataStack.h */,
+				62C746C51D47946400434AB5 /* ZHDCoreDataStack.m */,
+				793E738D1D505E4C00006C5E /* APIClient.h */,
+				793E738E1D505E4C00006C5E /* APIClient.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -329,9 +349,11 @@
 				793E738B1D505A1A00006C5E /* ZHDMainViewModel.m in Sources */,
 				79B522391D5B344900C25068 /* ZHDDetailView.m in Sources */,
 				793E738F1D505E4C00006C5E /* APIClient.m in Sources */,
+				795D6FFB1D5C3855005F7933 /* ZHDNewsCell.m in Sources */,
 				79DA44051D5AD66D0006BF0B /* ZHDMenuView.m in Sources */,
 				79B5223C1D5B348600C25068 /* ZHDDetailViewModel.m in Sources */,
 				794EEF3E1D59CFE50074BA83 /* ZHDLoginViewController.m in Sources */,
+				7979A5191D5C6556008A65B7 /* ZHDTheme+CoreDataProperties.m in Sources */,
 				793E73881D50485500006C5E /* ZHDMainViewController.m in Sources */,
 				79B8A21D1D548A0900B72CF6 /* ZHDVCWithMenu.m in Sources */,
 				62C746C61D47946400434AB5 /* ZHDCoreDataStack.m in Sources */,
@@ -339,8 +361,10 @@
 				62C746AC1D47520000434AB5 /* main.m in Sources */,
 				79DA44021D5AD6520006BF0B /* ZHDMainView.m in Sources */,
 				79D3C8881D5860CA00B65570 /* ZHDDetailViewController.m in Sources */,
+				7979A5111D5C6125008A65B7 /* ZHDMenuViewModel.m in Sources */,
 				62C746B81D47520000434AB5 /* ZhihuDemo.xcdatamodeld in Sources */,
 				79B8A2211D54A56800B72CF6 /* ZHDMenuViewController.m in Sources */,
+				7979A51A1D5C6556008A65B7 /* ZHDTheme.m in Sources */,
 				794EEF411D59D1130074BA83 /* ZHDLoginView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,11 +22,15 @@
 }
 
 - (NSInteger)numberOfSections {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    if (section == 1) {
+        return 4;
+    } else {
+        return 5;
+    }
 }
 
 - (NSString *)titleForSection:(NSInteger)section {
@@ -34,7 +38,7 @@
 }
 
 - (NSString *)titleAtIndexPath:(NSIndexPath *)indexPath {
-    return @"title name";
+    return @"本文为博主原创文章,未经博主允许不得转载";
 }
 
 - (NSString *)subTitleAtIndexPath:(NSIndexPath *)indexPath {

@@ -19,7 +19,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
 
-        self.backgroundColor = vColorView;
+        self.backgroundColor = kColorView;
 
         _logoImageView = [[UIImageView alloc] init];
         _logoImageView.image = [UIImage imageNamed:@"splash_logo"];

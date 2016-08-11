@@ -12,7 +12,7 @@
 #import "ZHDMainViewController.h"
 #import "ZHDMainViewModel.h"
 #import "ZHDMenuViewController.h"
-
+#import "ZHDMenuViewModel.h"
 #import "ZHDLoginViewController.h"
 
 @interface AppDelegate ()
@@ -27,8 +27,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ZHDMenuViewController *menuVC = [[ZHDMenuViewController alloc] init];
+    ZHDMenuViewModel *menuViewModel = [[ZHDMenuViewModel alloc] initWithModel:@""];
+    menuVC.viewModel = menuViewModel;
     ZHDMainViewController *mainVC = [[ZHDMainViewController alloc] init];
-    ZHDMainViewModel *mainVM = [[ZHDMainViewModel alloc] init];
+    ZHDMainViewModel *mainVM = [[ZHDMainViewModel alloc] initWithModel:@""];
     mainVC.viewModel = mainVM;
     UINavigationController *mainNavivation = [[UINavigationController alloc] initWithRootViewController:mainVC];
 

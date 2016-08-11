@@ -13,10 +13,9 @@
 #import "APIClient.h"
 #import "ZHDMainView.h"
 
-@interface ZHDMainViewController () <ZHDMainViewDelegate> {
-    ZHDMainView *_mainView;
-}
+@interface ZHDMainViewController () <ZHDMainViewDelegate>
 
+@property(nonatomic, strong) ZHDMainView *mainView;
 
 @end
 
@@ -25,6 +24,7 @@
 
 - (void)loadView {
     _mainView = [[ZHDMainView alloc] init];
+    _mainView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     _mainView.delegate = self;
     self.view = _mainView;
 }
@@ -35,11 +35,9 @@
     self.title = @"Main";
     self.view.backgroundColor = [UIColor whiteColor];
 
-    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuBtn.frame = CGRectMake(0, 0, 20, 18);
-    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
-    [menuBtn addTarget:self action:@selector(onMenuAction) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
+    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuAction)];
+    menuBtn.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = menuBtn;
 
     @weakify(self);
     [self.viewModel.updateTableSignal subscribeNext:^(id x) {
@@ -47,6 +45,10 @@
         [self->_mainView.tableView reloadData];
     }];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"viewDidAppear main: %f %f %f %f", self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
 }
 
 - (void)onMenuAction {

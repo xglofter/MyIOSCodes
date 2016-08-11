@@ -126,7 +126,7 @@
     CGFloat fCurMainOriginX = self.mainVC.view.frame.origin.x;
     CGFloat fMaxMainMoveX = kScreenWidth - kMainPageDistance;
     CGFloat fMovePercent = fCurMainOriginX / fMaxMainMoveX;
-    NSLog(@"fMovePercent: %f", fMovePercent);
+//    NSLog(@"fMovePercent: %f", fMovePercent);
 
     BOOL needMoveWithTap = YES;
     if (((fCurMainOriginX <= 0) && (_offsetX <= 0)) || ((fCurMainOriginX >= fMaxMainMoveX) && (_offsetX >= 0))) {

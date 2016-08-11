@@ -8,7 +8,7 @@
 
 #import "ZHDLoginViewController.h"
 #import "ZHDLoginView.h"
-
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "APIClient.h"
 
 @implementation ZHDLoginViewController {
@@ -27,11 +27,6 @@
 
     [self _setupLoginEnableSignal];
 
-    // TEST
-    RACSignal *test = [APIClient fetchJSONFromUrl:kUrlThemes parameters:nil];
-    [test subscribeNext:^(id x) {
-        NSLog(@">>>: %@", x);
-    }];
 }
 
 

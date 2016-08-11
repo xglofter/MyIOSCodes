@@ -7,6 +7,7 @@
 //
 
 #import "ZHDMainView.h"
+#import "ZHDNewsCell.h"
 
 @interface ZHDMainView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -18,9 +19,10 @@
 
     if (self = [super initWithFrame:frame]) {
         self.tableView = [[UITableView alloc] init];
-        self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        self.tableView.separatorColor = kColorSeparate;
+        [self.tableView registerClass:[ZHDNewsCell class] forCellReuseIdentifier:kIDNewsCell];
         [self addSubview:self.tableView];
 
         [self _layoutViews];
@@ -63,11 +65,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    static NSString *Identifier = @"Identifier";
-    //    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:Identifier];
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier];
-
-    cell.textLabel.text = [self.delegate mainViewTableViewContentTitle:indexPath];
+    ZHDNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kIDNewsCell forIndexPath:indexPath];
+    [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 15)];
+    cell.titleLabel.text = [self.delegate mainViewTableViewContentTitle:indexPath];
+//    cell.pictureImageView.image = [UIImage imageNamed:@""];
 
     return cell;
 }

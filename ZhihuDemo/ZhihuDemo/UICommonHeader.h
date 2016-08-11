@@ -23,9 +23,11 @@
 #define fTextFieldHeight 60
 #define fButtonHeight    60
 
-#define vColorView       [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:9]
+#define kColorView       [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:9]
+#define kColorSeparate   [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:95]
 
-
+#define kIDNewsCell      @"IDNewsCell"
+//#define ID
 
 
 

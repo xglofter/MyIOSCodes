@@ -6,9 +6,12 @@
 //  Copyright © 2016年 Richard. All rights reserved.
 //
 
-#import "UICommonHeader.h"
+#import <UIKit/UIKit.h>
 
+@class ZHDMenuViewModel;
 
 @interface ZHDMenuViewController : UIViewController
+
+@property(nonatomic, strong) ZHDMenuViewModel *viewModel;
 
 @end

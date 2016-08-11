@@ -14,6 +14,7 @@
 - (NSInteger)mainViewTableViewNumberOfSections;
 - (NSInteger)mainViewTableViewNumberOfRows:(NSInteger)section;
 - (NSString *)mainViewTableViewContentTitle:(NSIndexPath *)indexPath;
+- (NSString *)mainViewTableViewImageUrl:(NSIndexPath *)indexPath;
 - (NSString *)mainViewTableViewHeaderTitle:(NSInteger)section;
 
 @end

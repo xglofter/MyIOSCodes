@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="ZHDNews" representedClassName="ZHDNews" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="ZHDTheme" representedClassName="ZHDTheme" syncable="YES">
         <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,5 +15,6 @@
     </entity>
     <elements>
         <element name="ZHDTheme" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="ZHDNews" positionX="-63" positionY="18" width="128" height="105"/>
     </elements>
 </model>

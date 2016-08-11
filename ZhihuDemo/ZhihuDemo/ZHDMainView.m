@@ -8,6 +8,7 @@
 
 #import "ZHDMainView.h"
 #import "ZHDNewsCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ZHDMainView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -69,6 +70,8 @@
     [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 15)];
     cell.titleLabel.text = [self.delegate mainViewTableViewContentTitle:indexPath];
 //    cell.pictureImageView.image = [UIImage imageNamed:@""];
+    NSURL *imageURL = [NSURL URLWithString:[self.delegate mainViewTableViewImageUrl:indexPath]];
+    [cell.pictureImageView sd_setImageWithURL:imageURL];
 
     return cell;
 }

@@ -48,7 +48,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"viewDidAppear main: %f %f %f %f", self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
+    self.viewModel.active = YES;
 }
 
 - (void)onMenuAction {
@@ -73,6 +73,10 @@
 
 - (NSString *)mainViewTableViewContentTitle:(NSIndexPath *)indexPath {
     return [self.viewModel titleAtIndexPath:indexPath];
+}
+
+- (NSString *)mainViewTableViewImageUrl:(NSIndexPath *)indexPath {
+    return [self.viewModel imageURLAtIndexPath:indexPath];
 }
 
 - (NSString *)mainViewTableViewHeaderTitle:(NSInteger)section {

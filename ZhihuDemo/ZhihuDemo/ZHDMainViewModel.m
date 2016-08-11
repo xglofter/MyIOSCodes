@@ -7,30 +7,40 @@
 //
 
 #import "ZHDMainViewModel.h"
-
+#import "APIClient.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "ZHDNews.h"
+
+
+@interface ZHDMainViewModel ()
+
+@property(nonatomic, strong) NSMutableArray *topNewsArray;
+
+@end
 
 
 @implementation ZHDMainViewModel
 
-
 - (instancetype)initWithModel:(id)model {
 
+    _topNewsArray = [[NSMutableArray alloc] init];
+
     self.updateTableSignal = [[RACSubject subject] setNameWithFormat:@"ZHDMainViewModel updateTableSignal"];
+
+    [self.didBecomeActiveSignal subscribeNext:^(id x) {
+
+        [self _fetchNewsDatas];
+    }];
 
     return self;
 }
 
 - (NSInteger)numberOfSections {
-    return 3;
+    return 1;
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    if (section == 1) {
-        return 4;
-    } else {
-        return 5;
-    }
+    return _topNewsArray.count;
 }
 
 - (NSString *)titleForSection:(NSInteger)section {
@@ -38,7 +48,7 @@
 }
 
 - (NSString *)titleAtIndexPath:(NSIndexPath *)indexPath {
-    return @"本文为博主原创文章,未经博主允许不得转载";
+    return ((ZHDNews *)[_topNewsArray objectAtIndex:indexPath.row]).title;
 }
 
 - (NSString *)subTitleAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,7 +56,7 @@
 }
 
 - (NSString *)imageURLAtIndexPath:(NSIndexPath *)indexPath {
-    return @"";
+    return ((ZHDNews *)[_topNewsArray objectAtIndex:indexPath.row]).imageUrl;
 }
 
 
@@ -54,5 +64,23 @@
 
 // TODO: update the tableView's data
 // use [(RACSubject *)self.updateTableSignal sendNext:nil]
+
+- (void)_fetchNewsDatas {
+
+    RACSignal *test = [APIClient fetchJSONFromUrl:kUrlLatestNews parameters:nil];
+    [test subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+        NSDictionary *newsLatestDict = (NSDictionary *)x;
+        for (NSDictionary *news in newsLatestDict[@"top_stories"]) {  // top 5
+            ZHDNews *tempNews = [[ZHDNews alloc] init];
+            tempNews.id = news[@"id"];
+            tempNews.title = news[@"title"];
+            tempNews.imageUrl = news[@"image"];
+            [_topNewsArray addObject:tempNews];
+        }
+        // send update signal
+        [(RACSubject *)self.updateTableSignal sendNext:nil];
+    }];
+}
 
 @end

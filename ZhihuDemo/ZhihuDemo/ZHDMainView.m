@@ -9,8 +9,11 @@
 #import "ZHDMainView.h"
 #import "ZHDNewsCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ZHDRefreshView.h"
 
 @interface ZHDMainView () <UITableViewDelegate, UITableViewDataSource>
+
+@property(nonatomic, strong) ZHDRefreshView *refreshView;
 
 @end
 
@@ -25,6 +28,10 @@
         self.tableView.separatorColor = kColorSeparate;
         [self.tableView registerClass:[ZHDNewsCell class] forCellReuseIdentifier:kIDNewsCell];
         [self addSubview:self.tableView];
+
+        _refreshView = [[ZHDRefreshView alloc] initWithType:ZHDRefreshViewTypeHeader];
+        _refreshView.tipsPullString = @"显示上一篇";
+        [_refreshView addToScrollView:self.tableView];
 
         [self _layoutViews];
     }

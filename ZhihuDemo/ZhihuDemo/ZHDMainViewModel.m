@@ -69,7 +69,7 @@
 
     RACSignal *test = [APIClient fetchJSONFromUrl:kUrlLatestNews parameters:nil];
     [test subscribeNext:^(id x) {
-        NSLog(@"%@", x);
+//        NSLog(@"%@", x);
         NSDictionary *newsLatestDict = (NSDictionary *)x;
         for (NSDictionary *news in newsLatestDict[@"top_stories"]) {  // top 5
             ZHDNews *tempNews = [[ZHDNews alloc] init];

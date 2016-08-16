@@ -13,6 +13,12 @@ typedef NS_ENUM(NSInteger, ZHDRefreshViewType) {
     ZHDRefreshViewTypeFooter
 };
 
+typedef NS_ENUM(NSInteger, ZHDRefreshViewState) {
+    ZHDRefreshViewStateDefault,
+    ZHDRefreshViewStateCanRefresh,
+    ZHDRefreshViewStateDidRefresh,
+};
+
 @interface ZHDRefreshView : UIControl
 
 @property(nonatomic, copy) NSString *tipsPullString;

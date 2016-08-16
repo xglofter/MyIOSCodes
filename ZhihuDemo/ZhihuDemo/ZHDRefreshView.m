@@ -11,12 +11,16 @@
 
 #define kRefreshContentOffset     @"contentOffset"
 
+#define fToggleHeight       90.0
+
 #define kDefaultPullTips    @"下拉刷新"
 #define kDefaultReleaseTips @"释放更新"
 
 #define fDefaultViewWidth   [[UIScreen mainScreen] bounds].size.width
 #define fDefaultViewHeight  100.0
 #define fTipsFontSize       14.0
+
+#define fTimeCloseRefreshView  0.5
 
 @interface ZHDRefreshView ()
 
@@ -31,6 +35,8 @@
     UILabel *_tipsLabel;
     UIActivityIndicatorView *_activityIndicatorView;
     UIImageView *_indicatorImageView;
+    ZHDRefreshViewState _refreshState;
+    UIEdgeInsets _originalOffsetInsets;
 }
 
 - (instancetype)initWithType:(ZHDRefreshViewType)type {
@@ -58,6 +64,8 @@
         _tipsLabel.font = [UIFont systemFontOfSize:fTipsFontSize];
         _tipsLabel.textColor = [UIColor lightGrayColor];
         [self addSubview:_tipsLabel];
+
+        [self setRefreshStateTo:ZHDRefreshViewStateDefault];
     }
     return self;
 }
@@ -86,15 +94,65 @@
 }
 
 - (void)endRefresh {
-
+    [UIView animateWithDuration:fTimeCloseRefreshView animations:^{
+//        self.scrollView.contentInset = _originalOffsetInsets;
+    } completion:^(BOOL finished) {
+        [self setRefreshStateTo:ZHDRefreshViewStateDefault];
+    }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
 
-//    NSLog(@"observe: %@", keyPath);
+    if (![keyPath isEqualToString:kRefreshContentOffset] || self.scrollView.frame.size.height <= 0 || _refreshState == ZHDRefreshViewStateDidRefresh) return;
+
+    CGFloat fOffsetY = [change[@"new"] CGPointValue].y;
+    CGFloat fToggleY = - fToggleHeight - self.scrollView.contentInset.top;  // Header, TODO: Footer
+
+//    NSLog(@"%f - %f", fOffsetY, fToggleY);
+
+    if (fOffsetY <= fToggleY) {
+        if (!self.scrollView.isDragging && _refreshState == ZHDRefreshViewStateCanRefresh) {
+            // can toggle
+            [self setRefreshStateTo:ZHDRefreshViewStateDidRefresh];
+            return;
+        }
+
+        if (_refreshState == ZHDRefreshViewStateDefault) {
+            // did toggle
+            [self setRefreshStateTo:ZHDRefreshViewStateCanRefresh];
+            return;
+        }
+    } else {
+        if ((_refreshState != ZHDRefreshViewStateDefault) && self.scrollView.isDragging) {
+            [self setRefreshStateTo:ZHDRefreshViewStateDefault];
+            return;
+        }
+    }
 }
 
+#pragma mark Private Method
 
+- (void)setRefreshStateTo:(ZHDRefreshViewState)state {
+
+    switch (state) {
+        case ZHDRefreshViewStateDefault:
+            NSLog(@"Default");
+            break;
+        case ZHDRefreshViewStateCanRefresh:
+            NSLog(@"CanRefresh");
+            break;
+        case ZHDRefreshViewStateDidRefresh:
+            NSLog(@"DidRefresh");
+            // use this code to send event
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
+
+            break;
+        default:
+            break;
+    }
+    _refreshState = state;
+
+}
 
 
 

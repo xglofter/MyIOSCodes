@@ -29,8 +29,10 @@
         [self.tableView registerClass:[ZHDNewsCell class] forCellReuseIdentifier:kIDNewsCell];
         [self addSubview:self.tableView];
 
+        // TEST
         _refreshView = [[ZHDRefreshView alloc] initWithType:ZHDRefreshViewTypeHeader];
         _refreshView.tipsPullString = @"显示上一篇";
+        [_refreshView addTarget:self action:@selector(onFetchDate) forControlEvents:UIControlEventValueChanged];
         [_refreshView addToScrollView:self.tableView];
 
         [self _layoutViews];
@@ -46,6 +48,15 @@
         make.bottom.equalTo(self);
     }];
 }
+
+- (void)onFetchDate {
+    // TEST
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.tableView reloadData];
+        [self.refreshView endRefresh];
+    });
+}
+
 
 #pragma mark UITableViewDelegate
 

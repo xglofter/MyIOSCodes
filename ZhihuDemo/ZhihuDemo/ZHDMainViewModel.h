@@ -15,6 +15,7 @@
 
 - (instancetype)initWithModel:(id)model;
 
+- (void)selectCellAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSString *)titleForSection:(NSInteger)section;

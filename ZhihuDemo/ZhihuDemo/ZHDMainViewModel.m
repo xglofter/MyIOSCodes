@@ -35,6 +35,10 @@
     return self;
 }
 
+- (void)selectCellAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 - (NSInteger)numberOfSections {
     return 1;
 }

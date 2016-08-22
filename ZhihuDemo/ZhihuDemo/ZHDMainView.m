@@ -32,6 +32,7 @@
         // TEST
         _refreshView = [[ZHDRefreshView alloc] initWithType:ZHDRefreshViewTypeHeader];
         _refreshView.tipsPullString = @"显示上一篇";
+        _refreshView.tipsReleaseString = @"松开显示上一篇";
         [_refreshView addTarget:self action:@selector(onFetchDate) forControlEvents:UIControlEventValueChanged];
         [_refreshView addToScrollView:self.tableView];
 

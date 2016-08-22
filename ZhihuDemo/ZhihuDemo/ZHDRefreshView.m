@@ -11,20 +11,19 @@
 
 #define kRefreshContentOffset     @"contentOffset"
 
-#define fToggleHeight       90.0
-
-#define kDefaultPullTips    @"下拉刷新"
-#define kDefaultReleaseTips @"释放更新"
+#define kDefaultPullTips       @"下拉刷新"
+#define kDefaultPullTipsFooter @"上拉刷新"
+#define kDefaultReleaseTips    @"释放更新"
+#define kDefaultRefreshTips    @"更新中"
 
 #define fDefaultViewWidth   [[UIScreen mainScreen] bounds].size.width
-#define fDefaultViewHeight  100.0
+#define fDefaultViewHeight  80.0
 #define fTipsFontSize       14.0
+#define fToggleHeight       70.0
 
 #define fTimeCloseRefreshView  0.5
 
 @interface ZHDRefreshView ()
-
-// TODO: some property should put to public
 
 @property(nonatomic, weak) UIScrollView *scrollView;
 
@@ -36,22 +35,24 @@
     UIActivityIndicatorView *_activityIndicatorView;
     UIImageView *_indicatorImageView;
     ZHDRefreshViewState _refreshState;
-    UIEdgeInsets _originalOffsetInsets;
+    UIEdgeInsets _originalContentInsets;
+    BOOL _hasKeepOriginContentInsets;
 }
 
 - (instancetype)initWithType:(ZHDRefreshViewType)type {
 
     self = [self initWithFrame:CGRectMake(0,0,fDefaultViewWidth,fDefaultViewHeight)];
     if (self) {
+        self.type = type;
 
         self.backgroundColor = [UIColor greenColor];
-        _tipsPullString = kDefaultPullTips;
+        _tipsPullString = (_type == ZHDRefreshViewTypeHeader) ? kDefaultPullTips : kDefaultPullTipsFooter;
         _tipsReleaseString = kDefaultReleaseTips;
+        _tipsRefreshString = kDefaultRefreshTips;
 
         _activityIndicatorView = [UIActivityIndicatorView new];
         _activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
         [self addSubview:_activityIndicatorView];
-        [_activityIndicatorView startAnimating];
 
         _indicatorImageView = [UIImageView new];
         _indicatorImageView.image = [UIImage imageNamed:@"refresh_arrow"];
@@ -65,6 +66,7 @@
         _tipsLabel.textColor = [UIColor lightGrayColor];
         [self addSubview:_tipsLabel];
 
+        _hasKeepOriginContentInsets = NO;
         [self setRefreshStateTo:ZHDRefreshViewStateDefault];
     }
     return self;
@@ -75,7 +77,12 @@
 
     CGFloat superViewCenterX = _scrollView.center.x;
     CGFloat viewHalfHeight = self.frame.size.height * 0.5;
-    self.center = CGPointMake(superViewCenterX, -viewHalfHeight);
+    if (_type == ZHDRefreshViewTypeHeader) {
+        self.center = CGPointMake(superViewCenterX, -viewHalfHeight);
+    } else {
+        NSLog(@">>>>> %f", _scrollView.contentSize.height); // 注意，UITableView的contentSize比较特殊，和scrollview不同
+        self.center = CGPointMake(superViewCenterX, _scrollView.contentSize.height + viewHalfHeight);
+    }
     _activityIndicatorView.center = CGPointMake(superViewCenterX - 40, viewHalfHeight);
     _indicatorImageView.center = CGPointMake(superViewCenterX - 40, viewHalfHeight);
     _tipsLabel.center = CGPointMake(superViewCenterX + _tipsLabel.frame.size.width * 0.5 - 15, viewHalfHeight);
@@ -89,13 +96,9 @@
     [_scrollView addObserver:self forKeyPath:kRefreshContentOffset options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
-- (void)beginRefresh {
-
-}
-
 - (void)endRefresh {
     [UIView animateWithDuration:fTimeCloseRefreshView animations:^{
-//        self.scrollView.contentInset = _originalOffsetInsets;
+        self.scrollView.contentInset = _originalContentInsets;
     } completion:^(BOOL finished) {
         [self setRefreshStateTo:ZHDRefreshViewStateDefault];
     }];
@@ -137,15 +140,29 @@
     switch (state) {
         case ZHDRefreshViewStateDefault:
             NSLog(@"Default");
+            [self rotateIndicator:YES];
+            [self showActivityIndicator:NO];
             break;
         case ZHDRefreshViewStateCanRefresh:
             NSLog(@"CanRefresh");
+            [self rotateIndicator:NO];
             break;
         case ZHDRefreshViewStateDidRefresh:
-            NSLog(@"DidRefresh");
-            // use this code to send event
-            [self sendActionsForControlEvents:UIControlEventValueChanged];
+            NSLog(@"Refreshing");
+            if (!_hasKeepOriginContentInsets) {
+                _originalContentInsets = self.scrollView.contentInset;
+                _hasKeepOriginContentInsets = YES;
+            }
 
+//          _original + UIEdgeInsetsMake(self.frame.size.height, 0, 0, 0); // for Header
+
+            self.scrollView.contentInset = UIEdgeInsetsMake(_originalContentInsets.top + self.frame.size.height, _originalContentInsets.left, _originalContentInsets.bottom, _originalContentInsets.right);
+
+            [self showActivityIndicator:YES];
+
+            _tipsLabel.text = _tipsRefreshString;
+
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
             break;
         default:
             break;
@@ -154,6 +171,31 @@
 
 }
 
+- (void)rotateIndicator:(BOOL)isDefaultState {
+
+    CGFloat fAngle = 0.0;
+    if (isDefaultState) {
+        fAngle = (_type == ZHDRefreshViewTypeHeader) ? 0 : M_PI-0.0001;
+        _tipsLabel.text = _tipsPullString;
+    } else {
+        fAngle = (_type == ZHDRefreshViewTypeHeader) ? M_PI-0.0001 : 0;
+        _tipsLabel.text = _tipsReleaseString;
+    }
+    [UIView animateWithDuration:0.5 animations:^{
+        _indicatorImageView.transform = CGAffineTransformMakeRotation(fAngle);
+    }];
+}
+
+- (void)showActivityIndicator:(BOOL)isUse {
+    if (isUse) {
+        [_activityIndicatorView startAnimating];
+    } else {
+        [_activityIndicatorView stopAnimating];
+    }
+    _indicatorImageView.hidden = isUse;
+    _activityIndicatorView.hidden = !isUse;
+
+}
 
 
 

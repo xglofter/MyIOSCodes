@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, ZHDRefreshViewType) {
-    ZHDRefreshViewTypeHeader,
+    ZHDRefreshViewTypeHeader, // can use to UITableView's header view also
     ZHDRefreshViewTypeFooter
 };
 
@@ -23,10 +23,12 @@ typedef NS_ENUM(NSInteger, ZHDRefreshViewState) {
 
 @property(nonatomic, copy) NSString *tipsPullString;
 @property(nonatomic, copy) NSString *tipsReleaseString;
+@property(nonatomic, copy) NSString *tipsRefreshString;
+
+@property(nonatomic, assign) ZHDRefreshViewType type;
 
 - (instancetype)initWithType:(ZHDRefreshViewType)type;
 - (void)addToScrollView:(UIScrollView *)scrollView;
-- (void)beginRefresh;
 - (void)endRefresh;
 
 @end

@@ -61,6 +61,7 @@
 
 - (void)mainViewTableViewSelected:(NSIndexPath *)indexPath {
     NSLog(@"mainViewTableView Selected");
+    return [self.viewModel selectCellAtIndexPath:indexPath];
 }
 
 - (NSInteger)mainViewTableViewNumberOfSections {

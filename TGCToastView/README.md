@@ -9,7 +9,7 @@
 }
 ```
 
-![image1](tgc_toastview_demo_1.png)
+![image1](./res/tgc_toastview_demo_1.png)
 
 ```swift
 @IBAction func onShowToastImageView(sender: UIButton) {
@@ -18,7 +18,7 @@
 }
 ```
 
-![image1](tgc_toastview_demo_2.png)
+![image1](./res/tgc_toastview_demo_2.png)
 
 ```swift
 @IBAction func onShowToastErrorView(sender: UIButton) {
@@ -29,6 +29,6 @@
 }
 ```
 
-![image1](tgc_toastview_demo_3.png)
+![image1](./res/tgc_toastview_demo_3.png)
 
 

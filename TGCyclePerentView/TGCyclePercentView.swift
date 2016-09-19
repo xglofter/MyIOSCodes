@@ -17,8 +17,7 @@ private let TGCycleBgColor: UIColor = UIColor.grayColor().colorWithAlphaComponen
 
 class TGCyclePercentView: UIView {
 
-    // from 0 to 1
-    var progress: Float = 0.0 {
+    var progress: Float = 0.0 {   // 百分比 from 0 to 1
         didSet {
             if progress > 1 { progress = 1 }
             if progress < 0 { progress = 0 }
@@ -26,17 +25,17 @@ class TGCyclePercentView: UIView {
         }
     }
 
-    lazy private(set) var maxWidth: CGFloat = { // width equal to height
+    lazy private(set) var maxWidth: CGFloat = { // 包围Cycle的最大正方形边长
         let boundWid = self.frame.size.width
         let boundHei = self.frame.size.height
         return ((boundWid < boundHei) ? boundWid : boundHei)
     }()
 
-    lazy private(set) var radius: CGFloat = {
+    lazy private(set) var radius: CGFloat = {   // Cycle的半径
         return self.maxWidth * 0.5 * CGFloat(TGCycleRadiusPer)
     }()
 
-    lazy private(set) var lineWidth: CGFloat = {
+    lazy private(set) var lineWidth: CGFloat = {  // Cycle的线条宽度
         return self.maxWidth * 0.5 * CGFloat(TGCycleLineWidthPer)
     }()
 

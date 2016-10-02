@@ -45,7 +45,7 @@
     if (self) {
         self.type = type;
 
-        self.backgroundColor = [UIColor greenColor];
+        //self.backgroundColor = [UIColor greenColor];
         _tipsPullString = (_type == ZHDRefreshViewTypeHeader) ? kDefaultPullTips : kDefaultPullTipsFooter;
         _tipsReleaseString = kDefaultReleaseTips;
         _tipsRefreshString = kDefaultRefreshTips;
@@ -109,7 +109,7 @@
     if (![keyPath isEqualToString:kRefreshContentOffset] || self.scrollView.frame.size.height <= 0 || _refreshState == ZHDRefreshViewStateDidRefresh) return;
 
     CGFloat fOffsetY = [change[@"new"] CGPointValue].y;
-    CGFloat fToggleY = - fToggleHeight - self.scrollView.contentInset.top;  // Header, TODO: Footer
+    CGFloat fToggleY = -fToggleHeight - self.scrollView.contentInset.top;  // Header, TODO: Footer
 
 //    NSLog(@"%f - %f", fOffsetY, fToggleY);
 

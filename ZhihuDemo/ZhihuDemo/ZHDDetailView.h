@@ -6,8 +6,14 @@
 //  Copyright © 2016年 Richard. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "UICommonHeader.h"
 
 @interface ZHDDetailView : UIView
+
+@property(nonatomic, strong) UIWebView * webView; // TODO: make it private
+
+- (void)loadHTMLString:(NSString *)content;
+
+- (void)backPage;
 
 @end

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class ZHDDetailViewModel;
+
 @interface ZHDDetailViewController : UIViewController
+
+@property(nonatomic, strong) ZHDDetailViewModel *viewModel;
 
 @end

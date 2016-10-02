@@ -33,6 +33,7 @@
 		79DA44051D5AD66D0006BF0B /* ZHDMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DA44041D5AD66D0006BF0B /* ZHDMenuView.m */; };
 		79EC7B731D5CB8C100935702 /* ZHDNews+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EC7B701D5CB8C100935702 /* ZHDNews+CoreDataProperties.m */; };
 		79EC7B741D5CB8C100935702 /* ZHDNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EC7B721D5CB8C100935702 /* ZHDNews.m */; };
+		79FCB3531DA0A4DA00FFA6BC /* UIApplication+TopMost.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FCB3521DA0A4DA00FFA6BC /* UIApplication+TopMost.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		79EC7B701D5CB8C100935702 /* ZHDNews+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZHDNews+CoreDataProperties.m"; sourceTree = "<group>"; };
 		79EC7B711D5CB8C100935702 /* ZHDNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHDNews.h; sourceTree = "<group>"; };
 		79EC7B721D5CB8C100935702 /* ZHDNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHDNews.m; sourceTree = "<group>"; };
+		79FCB3511DA0A4DA00FFA6BC /* UIApplication+TopMost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TopMost.h"; sourceTree = "<group>"; };
+		79FCB3521DA0A4DA00FFA6BC /* UIApplication+TopMost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TopMost.m"; sourceTree = "<group>"; };
 		8938A5D8682535B0C972504C /* Pods-ZhihuDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhihuDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhihuDemo/Pods-ZhihuDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D84F60FCF049A9C10B9B1874 /* Pods_ZhihuDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZhihuDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -195,6 +198,7 @@
 		79B8A21E1D54A51200B72CF6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				79FCB3501DA0A2CA00FFA6BC /* Category */,
 				790727101D5F642F00F1FA6A /* View */,
 				79D3C8841D584E4B00B65570 /* UICommonHeader.h */,
 				62C746C41D47946400434AB5 /* ZHDCoreDataStack.h */,
@@ -253,6 +257,15 @@
 				79B8A2201D54A56800B72CF6 /* ZHDMenuViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		79FCB3501DA0A2CA00FFA6BC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				79FCB3511DA0A4DA00FFA6BC /* UIApplication+TopMost.h */,
+				79FCB3521DA0A4DA00FFA6BC /* UIApplication+TopMost.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		A11E64162A8AA467E862D89C /* Pods */ = {
@@ -395,6 +408,7 @@
 			files = (
 				79EC7B731D5CB8C100935702 /* ZHDNews+CoreDataProperties.m in Sources */,
 				793E738B1D505A1A00006C5E /* ZHDMainViewModel.m in Sources */,
+				79FCB3531DA0A4DA00FFA6BC /* UIApplication+TopMost.m in Sources */,
 				79B522391D5B344900C25068 /* ZHDDetailView.m in Sources */,
 				793E738F1D505E4C00006C5E /* APIClient.m in Sources */,
 				795D6FFB1D5C3855005F7933 /* ZHDNewsCell.m in Sources */,

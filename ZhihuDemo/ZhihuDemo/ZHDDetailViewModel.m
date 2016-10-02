@@ -7,7 +7,45 @@
 //
 
 #import "ZHDDetailViewModel.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "APIClient.h"
+
 
 @implementation ZHDDetailViewModel
 
+- (instancetype)initWithModel:(id)model {
+
+    self.updateTableSignal = [[RACSubject subject] setNameWithFormat:@"ZHDDetailViewModel updateTableSignal"];
+
+    @weakify(self);
+    // @NOTE: signal send when set active = YES
+    [self.didBecomeActiveSignal subscribeNext:^(id x) {
+        @strongify(self);
+        [self _fetchDatas];
+    }];
+
+    return self;
+}
+
+- (void)_fetchDatas {
+    NSString *url = [NSString stringWithFormat:kUrlNewsContent, @8728949];
+    RACSignal *test = [APIClient fetchJSONFromUrl:url parameters:nil];
+    [test subscribeNext:^(id x) {
+
+        // TODO: 新建一个fetchStringFromUrl
+
+        NSString *body = (NSString *)[(NSDictionary *)x objectForKey:@"body"];
+        NSLog(@"%@", body);
+//        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:body options:NSJSONWritingPrettyPrinted error:nil];
+//        NSString *stringJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@", stringJson);
+
+        // send update signal
+        [(RACSubject *)self.updateTableSignal sendNext:body];
+    }];
+}
+
+
 @end
+
+

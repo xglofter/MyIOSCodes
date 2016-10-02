@@ -88,7 +88,6 @@
     ZHDNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:kIDNewsCell forIndexPath:indexPath];
     [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 15)];
     cell.titleLabel.text = [self.delegate mainViewTableViewContentTitle:indexPath];
-//    cell.pictureImageView.image = [UIImage imageNamed:@""];
     NSURL *imageURL = [NSURL URLWithString:[self.delegate mainViewTableViewImageUrl:indexPath]];
     [cell.pictureImageView sd_setImageWithURL:imageURL];
 

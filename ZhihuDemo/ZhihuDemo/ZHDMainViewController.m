@@ -10,8 +10,8 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "ZHDVCWithMenu.h"
 #import "ZHDMainViewModel.h"
-#import "APIClient.h"
 #import "ZHDMainView.h"
+#import "ZHDDetailViewController.h"
 
 @interface ZHDMainViewController () <ZHDMainViewDelegate>
 
@@ -60,8 +60,9 @@
 #pragma mark ZHDMainViewDelegate
 
 - (void)mainViewTableViewSelected:(NSIndexPath *)indexPath {
-    NSLog(@"mainViewTableView Selected");
-    return [self.viewModel selectCellAtIndexPath:indexPath];
+    [self.viewModel selectCellAtIndexPath:indexPath];
+    ZHDDetailViewController *detailVC = [[ZHDDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:true];
 }
 
 - (NSInteger)mainViewTableViewNumberOfSections {

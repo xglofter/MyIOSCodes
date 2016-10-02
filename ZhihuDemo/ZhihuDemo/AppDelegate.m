@@ -14,6 +14,7 @@
 #import "ZHDMenuViewController.h"
 #import "ZHDMenuViewModel.h"
 #import "ZHDLoginViewController.h"
+#import "ZHDDetailViewController.h"
 
 @interface AppDelegate ()
 
@@ -41,7 +42,11 @@
 
     // TEST
 //    ZHDLoginViewController *loginVC = [[ZHDLoginViewController alloc] init];
-//    self.window.rootViewController = loginVC;
+
+    // TEST
+//    ZHDDetailViewController *testVC = [[ZHDDetailViewController alloc] init];
+//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:testVC];
+//    self.window.rootViewController = navigation;
 
     // color scheme
     self.window.backgroundColor = [UIColor whiteColor];

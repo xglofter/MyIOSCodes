@@ -36,7 +36,6 @@
 }
 
 - (void)selectCellAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 - (NSInteger)numberOfSections {
@@ -48,7 +47,7 @@
 }
 
 - (NSString *)titleForSection:(NSInteger)section {
-    return @"section title name";
+    return @"最新";
 }
 
 - (NSString *)titleAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,7 +55,7 @@
 }
 
 - (NSString *)subTitleAtIndexPath:(NSIndexPath *)indexPath {
-    return @"subtitle name";
+    return @"";
 }
 
 - (NSString *)imageURLAtIndexPath:(NSIndexPath *)indexPath {

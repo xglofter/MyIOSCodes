@@ -90,7 +90,7 @@
         tempView.userInteractionEnabled = false;
     }
 
-    [self addTapGesture];
+    [self _addTapGesture];
 }
 
 - (void)closeMenuView {
@@ -113,7 +113,7 @@
         tempView.userInteractionEnabled = true;
     }
 
-    [self removeTapGesture];
+    [self _removeTapGesture];
 }
 
 #pragma mark Private Methods
@@ -195,12 +195,15 @@
     [self closeMenuView];
 }
 
-- (void)removeTapGesture {
+- (void)_removeTapGesture {
     [self.mainVC.view removeGestureRecognizer:_tapGR];
     _tapGR = nil;
 }
 
-- (void)addTapGesture {
+- (void)_addTapGesture {
+    if (_tapGR) {
+        [self _removeTapGesture];
+    }
     _tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onHandleTapAction:)];
     _tapGR.numberOfTouchesRequired = 1;
 

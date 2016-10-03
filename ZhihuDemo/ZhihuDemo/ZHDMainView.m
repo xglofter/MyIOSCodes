@@ -11,6 +11,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ZHDRefreshView.h"
 
+
+#define fArticleTableHeaderHeight  45
+#define fArticleTableCellHeight    85
+
+
 @interface ZHDMainView () <UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong) ZHDRefreshView *refreshView;

@@ -15,9 +15,18 @@
     ZHDDetailView *_detailView;
 }
 
+@property(nonatomic, strong) NSNumber* newsId;
+
 @end
 
 @implementation ZHDDetailViewController
+
+- (instancetype)initWithNewsId: (NSNumber *)nid {
+    if (self = [super init]) {
+        self.newsId = nid;
+    }
+    return self;
+}
 
 - (void)loadView {
     _detailView = [[ZHDDetailView alloc] init];
@@ -28,10 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Detail";
+    self.title = @"";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
-    self.viewModel = [[ZHDDetailViewModel alloc] initWithModel:@""];
+    self.viewModel = [[ZHDDetailViewModel alloc] initWithModel:self.newsId];
 
     @weakify(self);
     [self.viewModel.updateTableSignal subscribeNext:^(NSString *x) {

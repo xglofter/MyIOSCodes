@@ -20,8 +20,7 @@
 @implementation ZHDMenuViewController
 
 - (void)loadView {
-    _menuView = [[ZHDMenuView alloc] init];
-    _menuView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    _menuView = [[ZHDMenuView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     _menuView.delegate = self;
     self.view = _menuView;
 

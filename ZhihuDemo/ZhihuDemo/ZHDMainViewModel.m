@@ -14,6 +14,7 @@
 
 @interface ZHDMainViewModel ()
 
+@property(nonatomic, strong) NSDate *date;
 @property(nonatomic, strong) NSMutableArray *topNewsArray;
 
 @end
@@ -35,7 +36,8 @@
     return self;
 }
 
-- (void)selectCellAtIndexPath:(NSIndexPath *)indexPath {
+- (ZHDNews *)getCellAtIndexPath:(NSIndexPath *)indexPath {
+    return ((ZHDNews *)self.topNewsArray[indexPath.row]);
 }
 
 - (NSInteger)numberOfSections {
@@ -47,7 +49,9 @@
 }
 
 - (NSString *)titleForSection:(NSInteger)section {
-    return @"最新";
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@"yyy-MM-dd"];
+    return [format stringFromDate:self.date];
 }
 
 - (NSString *)titleAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,8 +76,13 @@
 
     RACSignal *test = [APIClient fetchJSONFromUrl:kUrlLatestNews parameters:nil];
     [test subscribeNext:^(id x) {
-//        NSLog(@"%@", x);
+        NSLog(@"%@", x);
         NSDictionary *newsLatestDict = (NSDictionary *)x;
+
+        NSDateFormatter *format = [[NSDateFormatter alloc]init];
+        [format setDateFormat:@"yyyyMMdd"];
+        self.date = [format dateFromString:newsLatestDict[@"date"]];
+
         for (NSDictionary *news in newsLatestDict[@"top_stories"]) {  // top 5
             ZHDNews *tempNews = [[ZHDNews alloc] init];
             tempNews.id = news[@"id"];

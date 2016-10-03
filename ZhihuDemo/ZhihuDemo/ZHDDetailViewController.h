@@ -15,4 +15,6 @@
 
 @property(nonatomic, strong) ZHDDetailViewModel *viewModel;
 
+- (instancetype)initWithNewsId: (NSNumber *)nid;
+
 @end

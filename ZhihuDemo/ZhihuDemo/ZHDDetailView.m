@@ -19,6 +19,7 @@
     if (self = [super initWithFrame:frame]) {
 
         _webView = [[UIWebView alloc] init];
+//        _webView.scalesPageToFit = YES;
         [self addSubview:_webView];
 
         [self _layoutViews];
@@ -40,8 +41,7 @@
 }
 
 - (void)loadHTMLString:(NSString *)content {
-    //        NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
-    //        [_webView loadRequest:[NSURLRequest requestWithURL:url]];
+
     [_webView loadHTMLString:content baseURL:nil];
 }
 
@@ -87,6 +87,30 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"webViewDidFinishLoad");
+//    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", webView.frame.size.width];
+//    [webView stringByEvaluatingJavaScriptFromString:meta];
+
+    //拦截网页图片  并修改图片大小
+
+    CGFloat fWidth = self.frame.size.width - 15;
+    NSString *jsFormat = @"var script = document.createElement('script');"
+    "script.type = 'text/javascript';"
+    "script.text = \"function ResizeImages() { "
+    "var myimg,oldwidth;"
+    "var maxwidth=%f;" //缩放系数
+    "for(i=0;i <document.images.length;i++){"
+    "myimg = document.images[i];"
+    "if(myimg.width > maxwidth){"
+    "oldwidth = myimg.width;"
+    "myimg.width = maxwidth;"
+    "myimg.height = myimg.height * (maxwidth/oldwidth);"
+    "}"
+    "}"
+    "}\";"
+    "document.getElementsByTagName('head')[0].appendChild(script);";
+    NSString *jsString = [[NSString alloc]initWithFormat:jsFormat, fWidth];
+    [_webView stringByEvaluatingJavaScriptFromString:jsString];
+    [_webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {

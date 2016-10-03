@@ -50,7 +50,7 @@
 
     // color scheme
     self.window.backgroundColor = [UIColor whiteColor];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor clearColor]];
     [self.window makeKeyAndVisible];
 
     [[ZHDCoreDataStack defaultStack] ensureInitialLoad];

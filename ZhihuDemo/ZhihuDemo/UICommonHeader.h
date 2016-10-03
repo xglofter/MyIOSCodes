@@ -13,12 +13,6 @@
 #define kScreenWidth      [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight     [[UIScreen mainScreen] bounds].size.height
 
-#define fCategoryTableHeaderHeight 130
-#define fCategoryTableCellHeight   45
-
-#define fArticleTableHeaderHeight  45
-#define fArticleTableCellHeight    85
-
 #define fCornerRadius    5
 #define fTextFieldHeight 60
 #define fButtonHeight    60

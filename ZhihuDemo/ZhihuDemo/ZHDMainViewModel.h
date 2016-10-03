@@ -8,6 +8,8 @@
 
 #import <ReactiveViewModel/ReactiveViewModel.h>
 
+@class ZHDNews;
+
 @interface ZHDMainViewModel : RVMViewModel
 
 @property(nonatomic, strong) RACSignal *updateTableSignal;
@@ -15,7 +17,8 @@
 
 - (instancetype)initWithModel:(id)model;
 
-- (void)selectCellAtIndexPath:(NSIndexPath *)indexPath;
+- (ZHDNews *)getCellAtIndexPath:(NSIndexPath *)indexPath;
+
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSString *)titleForSection:(NSInteger)section;

@@ -12,6 +12,7 @@
 #import "ZHDMainViewModel.h"
 #import "ZHDMainView.h"
 #import "ZHDDetailViewController.h"
+#import "ZHDNews.h"
 
 @interface ZHDMainViewController () <ZHDMainViewDelegate>
 
@@ -23,8 +24,7 @@
 @implementation ZHDMainViewController
 
 - (void)loadView {
-    _mainView = [[ZHDMainView alloc] init];
-    _mainView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    _mainView = [[ZHDMainView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     _mainView.delegate = self;
     self.view = _mainView;
 }
@@ -32,8 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Main";
+    self.title = @"最新";
     self.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
 
     UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(onMenuAction)];
     menuBtn.tintColor = [UIColor whiteColor];
@@ -49,6 +50,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     self.viewModel.active = YES;
+    [_parentVC setPanGestureEnable:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [_parentVC setPanGestureEnable:NO];
 }
 
 - (void)onMenuAction {
@@ -60,8 +66,8 @@
 #pragma mark ZHDMainViewDelegate
 
 - (void)mainViewTableViewSelected:(NSIndexPath *)indexPath {
-    [self.viewModel selectCellAtIndexPath:indexPath];
-    ZHDDetailViewController *detailVC = [[ZHDDetailViewController alloc] init];
+    ZHDNews * news = [self.viewModel getCellAtIndexPath:indexPath];
+    ZHDDetailViewController *detailVC = [[ZHDDetailViewController alloc] initWithNewsId:news.id];
     [self.navigationController pushViewController:detailVC animated:true];
 }
 

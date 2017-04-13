@@ -49,4 +49,32 @@ public extension UIImage {
         UIGraphicsEndImageContext()
     }
 
+
+    /// 使用水印文字
+    ///
+    /// - Parameter text: 文字
+    /// - Returns: 生成的水印文字图片
+    func drawTextInImage(text: String) -> UIImage {
+        //开启图片上下文
+        UIGraphicsBeginImageContext(self.size)
+        //图形重绘
+        self.draw(in: CGRect(x: 0,y: 0, width: self.size.width, height: self.size.height))
+        //水印文字属性
+        let att = [
+            NSForegroundColorAttributeName:UIColor.white,
+            NSFontAttributeName:UIFont.systemFont(ofSize: 16),
+            NSBackgroundColorAttributeName:UIColor.clear
+        ]
+        //水印文字大小
+        let text = NSString(string: text)
+        let size = text.size(attributes: att)
+        //绘制文字
+        text.draw(in: CGRect(x: 5, y: 5, width: size.width, height: size.height), withAttributes: att)
+        //从当前上下文获取图片
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        //关闭上下文
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
 }

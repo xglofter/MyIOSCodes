@@ -2,6 +2,8 @@
 
 使用方法：
 
+将 ./TGDropBoxView.swift 拖入你的工程，图片 ./ic_more_down.png 拖入你工程 Assets.xcassets 
+
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()

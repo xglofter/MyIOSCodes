@@ -69,7 +69,7 @@ class TGDropBoxView: UIView {
         self.spaceLine.backgroundColor = UIColor.lightGray
         self.addSubview(self.spaceLine)
 
-        self.boxArrow = UIImageView(image: UIImage(named: "ic_drop_down"))
+        self.boxArrow = UIImageView(image: UIImage(named: "ic_more_down"))
         self.boxButton.addSubview(self.boxArrow)
 
         let parentFrame = parentVC.view!.frame
